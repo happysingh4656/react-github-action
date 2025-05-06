@@ -9,6 +9,7 @@ jobs:   # Define jobs to run in the workflow
     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
     steps:      # Define the steps to execute in the job
       - name: Get code # Checkout the repository code
+        uses: actions/checkout@v4  # Checkout the repository code
         run: |
           echo "cloning repository.."
           echo "{{toJson(github)}}"    #call a function not to hardcode the repo name
