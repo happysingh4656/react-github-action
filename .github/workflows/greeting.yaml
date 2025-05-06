@@ -1,0 +1,11 @@
+name: greetings  # Define the name of the workflow
+"on": [push, pull_request]  # Trigger on push and pull request events
+jobs:   # Define jobs to run in the workflow
+  greet:    # Define a job named "greet"
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    steps:      # Define the steps to execute in the job
+      - name: Checkout code # Checkout the repository code
+        uses: actions/checkout@v2  # Checkout the repository code
+
+      - name: Greet the world # Print a greeting message
+        run: echo "Hello, world!"
