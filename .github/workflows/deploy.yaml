@@ -1,0 +1,15 @@
+name: deploy dist  # Define the name of the workflow
+"on": [push, pull_request, workflow_dispatch]  # Trigger on push and pull request events"
+# "on"
+#     - push:  # Trigger on push events
+#     - pull_request:  # Trigger on pull request events
+#     - workflow_dispatch:  # Allow manual triggering of the workflow
+jobs:   # Define jobs to run in the workflow
+  test:    # Define a job named "greet"
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    steps:      # Define the steps to execute in the job
+      - name: Get code # Checkout the repository code
+        run: |
+          echo: "cloning repository.."
+          echo: "{{toJson(github)}}"    #call a function not to hardcode the repo name
+          git clone https://github.com/${{github.repository}}:.git # Checkout the repository code
